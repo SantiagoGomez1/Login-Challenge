@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container img {
+    width: 220px;
+    height: 220px;
+    object-fit:cover;
+    padding: 20px;
+}
+
+.container label{
+    color:white
+}
+
+.containerForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.containerForm input{
+    height: 2rem;
+    width: 15rem;
+    text-align: center;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid rgb(106, 0, 255);
+}
+
+.containerForm input:focus{
+    border-color:2px solid rgb(106, 0, 255);
+}
+
+.containerForm button{
+    height: 2rem;
+    width: 10rem;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    align-self: center;
+    cursor: pointer;
+    background: linear-gradient(-160.5deg, rgb(106, 0, 255) , #3371db );
+}
+
+.containerForm button:hover{
+    background: linear-gradient(to left, rgb(106, 0, 255) , #2859af );
+}
+
+.containerForm span{
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
