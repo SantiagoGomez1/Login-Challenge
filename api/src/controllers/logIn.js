@@ -1,9 +1,10 @@
 const userSchema = require("../models/user");
 
 const logIn = async (req, res) => {
-  const { email, password } = req.body;
-  const userEmail = email.toLowerCase()
-  if (!userEmail) {
+  const { emailUser, password } = req.body;
+  const email = await emailUser.toLowerCase()
+  console.log(email)
+  if (!email) {
     return res.status(401).json({
       error: "Please send your email",
     });
@@ -13,7 +14,7 @@ const logIn = async (req, res) => {
     });
   }
 
-  const user = await userSchema.findOne({ userEmail });
+  const user = await userSchema.findOne({ email });
 
   if (user) {
     const isMatch = await user.isCorrectPassword(password);
