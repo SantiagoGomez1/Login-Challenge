@@ -2,7 +2,7 @@ const userSchema = require("../models/user");
 
 const logIn = async (req, res) => {
   const { emailUser, password } = req.body;
-  const email = await emailUser.toLowerCase()
+  const email = await emailUser.toLowerCase().trim()
 
   if (!email) {
     return res.status(401).json({

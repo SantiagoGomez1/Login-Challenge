@@ -7,7 +7,7 @@ const newUser = async (req, res) => {
       name: name.charAt(0).toUpperCase() + name.slice(1),
       lastName: lastName.charAt(0).toUpperCase() + lastName.slice(1),
       password: password,
-      email: email.toLowerCase(),
+      email: email.toLowerCase().trim(),
       image:
         image ||
         "https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png",
