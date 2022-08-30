@@ -160,7 +160,7 @@ export const Register = () => {
         <input
           name="image"
           value={input.data}
-          placeholder="URL"
+          placeholder="Image URL"
           onChange={(e) => handleChange(e)}
         />
         <br />
