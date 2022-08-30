@@ -22,7 +22,7 @@ export const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const validate = await validateEmail(input.emailUser);
+    const validate = await validateEmail(input.emailUser.trim());
     if (!input.emailUser.trim()) {
       setErrors("Debes ingresar tu email.");
       setTimeout(() => {
