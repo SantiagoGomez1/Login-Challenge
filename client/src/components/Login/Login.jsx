@@ -5,7 +5,7 @@ import styles from "./Login.module.css";
 
 export const Login = () => {
   const [input, setInput] = useState({
-    email: "",
+    emailUser: "",
     password: "",
   });
 
@@ -22,8 +22,8 @@ export const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const validate = await validateEmail(input.email);
-    if (!input.email.trim()) {
+    const validate = await validateEmail(input.emailUser);
+    if (!input.emailUser.trim()) {
       setErrors("Debes ingresar tu email.");
       setTimeout(() => {
         setErrors("");
@@ -67,7 +67,7 @@ export const Login = () => {
         autoComplete="off"
       >
         <input
-          name="email"
+          name="emailUser"
           value={input.name}
           placeholder="Email"
           onChange={(e) => handleChange(e)}
