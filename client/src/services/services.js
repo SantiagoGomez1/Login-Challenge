@@ -3,7 +3,7 @@ import axios from "axios";
 export const logIn = async (credentials) => {
   try {
     const response = await axios.post(
-      "http://localhost:8000/login",
+      "https://login-challenge-production.up.railway.app/login",
       credentials
     );
     return response.data;
@@ -20,7 +20,7 @@ export const getUserInfo = async (id, token) => {
   };
   try {
     const response = await axios.get(
-      `http://localhost:8000/user/${id}`,
+      `https://login-challenge-production.up.railway.app/user/${id}`,
       config
     );
     if (response.data) {
@@ -36,7 +36,7 @@ export const getUserInfo = async (id, token) => {
 
 export const getUsers = async () => {
   try {
-    const response = await axios.get("http://localhost:8000/users");
+    const response = await axios.get("https://login-challenge-production.up.railway.app/users");
     return response.data;
   } catch (error) {
     console.log(error);
@@ -46,7 +46,7 @@ export const getUsers = async () => {
 
 export const newUserRegister = async (data) => {
   try {
-    await axios.post("http://localhost:8000/signup", data);
+    await axios.post("https://login-challenge-production.up.railway.app/signup", data);
   } catch (error) {
     console.log(error);
     return error;
