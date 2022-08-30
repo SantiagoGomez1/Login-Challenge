@@ -34,7 +34,7 @@ export const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const validate = await validateEmail(input.email);
+    const validate = await validateEmail(input.email.trim());
     if (!input.name.trim()) {
       setErrors("Debes ingresar tu nombre.");
       setTimeout(() => {
