@@ -83,12 +83,6 @@ export const Register = () => {
         setErrors("");
       }, 5000);
       return;
-    } else if (!input.image.trim()) {
-      setErrors("Debes ingresar la URL de una imagen.");
-      setTimeout(() => {
-        setErrors("");
-      }, 5000);
-      return;
     } else if (validate === null) {
       setErrors("El formato del email es invalido.");
       setTimeout(() => {
