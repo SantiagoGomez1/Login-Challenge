@@ -158,7 +158,7 @@ export const Register = () => {
           onChange={(e) => handleChange(e)}
         />
         <br />
-        {errors ? <span>{errors}</span> : null}
+        {errors ? <span className={styles.error}>{errors}</span> : null}
         <br />
         <button type="submit">Register</button>
         <br />

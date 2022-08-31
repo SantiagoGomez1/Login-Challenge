@@ -22,7 +22,7 @@ export const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const validate = await validateEmail(input.emailUser.trim());
+    const validate = await validateEmail(input.emailUser);
     if (!input.emailUser.trim()) {
       setErrors("Debes ingresar tu email.");
       setTimeout(() => {
@@ -81,7 +81,7 @@ export const Login = () => {
           onChange={(e) => handleChange(e)}
         />
         <br />
-        {errors ? <span>{errors}</span> : null}
+        {errors ? <span className={styles.error}>{errors}</span> : null}
         <br />
         <button type="submit">Login</button>
         <br />

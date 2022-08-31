@@ -54,8 +54,10 @@ export const newUserRegister = async (data) => {
 };
 
 export const validateEmail = (email) => {
+  console.log("eiou",email)
   return String(email)
     .toLowerCase()
+    .trim()
     .match(
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
