@@ -1,8 +1,12 @@
-const userSchema = require("../models/user");
+const userSchema = require("../../models/user");
 
 const getUsers = async (req, res) => {
   try {
-    const response = await userSchema.find();
+    const response = await userSchema.find().populate("publications", {
+      text: 1,
+      image: 1,
+      date: 1,
+    });
     let users = response.map((u) => {
       let user = {
         id: u.id,
@@ -10,6 +14,7 @@ const getUsers = async (req, res) => {
         lastName: u.lastName,
         email: u.email,
         image: u.image,
+        publications: u.publications,
       };
       return user;
     });

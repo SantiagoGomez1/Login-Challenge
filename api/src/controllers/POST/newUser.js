@@ -1,4 +1,4 @@
-const userSchema = require("../models/user");
+const userSchema = require("../../models/user");
 
 const newUser = async (req, res) => {
   const { name, lastName, password, email, image } = req.body;

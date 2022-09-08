@@ -1,34 +1,47 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const saltRounds = 10;
 
-const userSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: false,
+const userSchema = new Schema({
+  name: {
+    type: String,
+    required: false,
+  },
+  lastName: {
+    type: String,
+    required: false,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+    required: false,
+  },
+  publications: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Publication",
     },
-    lastName: {
-      type: String,
-      required: false,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-    image: {
-      type: String,
-      required: false,
-    },
-  }
-);
+  ],
+});
+
+userSchema.set("toJSON", {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id;
+    delete returnedObject._id;
+    delete returnedObject.__v;
+    delete returnedObject.password;
+  },
+});
 
 userSchema.pre("save", function (next) {
   if (this.isNew || this.isModified("password")) {
@@ -59,4 +72,4 @@ userSchema.methods.createToken = function () {
   });
 };
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = model("User", userSchema);
