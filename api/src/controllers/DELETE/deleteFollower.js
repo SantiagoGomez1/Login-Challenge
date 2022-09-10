@@ -10,6 +10,7 @@ const deleteFollower = async (req, res) => {
   //   const user = await userSchema.findByIdAndRemove(id);
   //   const userUnfollow = await userSchema.findById(userId);
   res.json(unfollow);
+  console.log("ASDKAOSD")
 };
 
 module.exports = deleteFollower;
