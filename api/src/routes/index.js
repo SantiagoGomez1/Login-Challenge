@@ -10,6 +10,8 @@ const newPublication = require("../controllers/POST/newPublication");
 const getAllPublications = require("../controllers/GET/getPublications");
 const deletePublication = require("../controllers/DELETE/deletePublication");
 const updatePublication = require("../controllers/PUT/updatePublication");
+const setFollowing = require("../controllers/POST/following");
+const deleteFollower = require("../controllers/DELETE/deleteFollower");
 
 const router = express.Router();
 
@@ -24,5 +26,9 @@ router.post("/user/publication", [cors(), verifyToken], newPublication);
 router.get("/publications", [cors(), verifyToken], getAllPublications);
 router.put("/publications", [cors(), verifyToken], updatePublication);
 router.delete("/publications", [cors(), verifyToken], deletePublication);
+
+//FOLLOWERS - fOLLOWING
+router.post("/user/following", setFollowing);
+router.delete("/unfollow", deleteFollower);
 
 module.exports = router;
