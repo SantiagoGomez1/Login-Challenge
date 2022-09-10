@@ -3,7 +3,8 @@ import axios from "axios";
 export const logIn = async (credentials) => {
   try {
     const response = await axios.post(
-      "https://login-challenge-production.up.railway.app/login",
+      // "https://login-challenge-production.up.railway.app/login"
+      "http://localhost:8000/login",
       credentials
     );
     return response.data;
@@ -20,7 +21,7 @@ export const getUserInfo = async (id, token) => {
   };
   try {
     const response = await axios.get(
-      `https://login-challenge-production.up.railway.app/user/${id}`,
+      `http://localhost:8000/user/${id}`,
       config
     );
     if (response.data) {
@@ -36,7 +37,7 @@ export const getUserInfo = async (id, token) => {
 
 export const getUsers = async () => {
   try {
-    const response = await axios.get("https://login-challenge-production.up.railway.app/users");
+    const response = await axios.get("http://localhost:8000/users");
     return response.data;
   } catch (error) {
     console.log(error);
@@ -46,7 +47,7 @@ export const getUsers = async () => {
 
 export const newUserRegister = async (data) => {
   try {
-    await axios.post("https://login-challenge-production.up.railway.app/signup", data);
+    await axios.post("http://localhost:8000/signup", data);
   } catch (error) {
     console.log(error);
     return error;
@@ -54,7 +55,6 @@ export const newUserRegister = async (data) => {
 };
 
 export const validateEmail = (email) => {
-  console.log("eiou",email)
   return String(email)
     .toLowerCase()
     .trim()
