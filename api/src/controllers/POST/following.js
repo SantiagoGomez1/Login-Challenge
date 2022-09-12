@@ -5,7 +5,9 @@ const setFollowing = async (req, res) => {
   const { id, userId } = req.body;
   try {
     const user = await userSchema.findById(id);
-    const noRepeat = await user.following?.find((u) => u._id.toJSON() === userId);
+    const noRepeat = await user.following?.find(
+      (u) => u._id.toJSON() === userId
+    );
     if (!noRepeat) {
       const follow = await userSchema.findById(userId);
       const newFollow = followingSchema({
@@ -25,5 +27,6 @@ const setFollowing = async (req, res) => {
     res.json(error);
   }
 };
+
 
 module.exports = setFollowing;
