@@ -10,7 +10,7 @@ const newUser = async (req, res) => {
       email: email.toLowerCase().trim(),
       image:
         image ||
-        "https://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png",
+        "https://www.seekpng.com/png/full/847-8474751_download-empty-profile.png",
     });
     await user.save();
     res.status(201).json(user);
