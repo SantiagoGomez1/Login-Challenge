@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { logIn, validateEmail } from "../../services/services";
+import logo from "../../images/Logo.png"
 import styles from "./Login.module.css";
 
 export const Login = () => {
@@ -24,19 +25,19 @@ export const Login = () => {
     e.preventDefault();
     const validate = await validateEmail(input.emailUser);
     if (!input.emailUser.trim()) {
-      setErrors("Debes ingresar tu email.");
+      setErrors("You must enter your email.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
       return;
     } else if (!input.password.trim()) {
-      setErrors("Debes ingresar tu constraseña.");
+      setErrors("You must enter your password.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
       return;
     } else if (validate === null) {
-      setErrors("El email es invalido.");
+      setErrors("The email is invalid.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
@@ -44,7 +45,7 @@ export const Login = () => {
     }
     const data = await logIn(input);
     if (data === 401) {
-      setErrors("La contraseña o email son invalidos.");
+      setErrors("The password or email are invalid.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
@@ -58,7 +59,7 @@ export const Login = () => {
   return (
     <div className={styles.container}>
       <img
-        src="https://images.vexels.com/media/users/3/224282/isolated/preview/c09e11bba1766e8412ce116e1afb4a58-logo-de-lineas-abstractas-violetas.png"
+        src={logo}
         alt=""
       />
       <form
@@ -82,6 +83,7 @@ export const Login = () => {
         />
         <br />
         {errors ? <span className={styles.error}>{errors}</span> : null}
+        <br />
         <br />
         <button type="submit">Login</button>
         <br />

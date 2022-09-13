@@ -6,6 +6,9 @@ import {
 } from "../../services/services.js";
 import { useNavigate } from "react-router-dom";
 import styles from "./Register.module.css";
+import UserImage from "../UserImage/UserImage.jsx";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 export const Register = () => {
   const [users, setUsers] = useState();
@@ -18,6 +21,8 @@ export const Register = () => {
     email: "",
     image: "",
   });
+
+  const MySwal = withReactContent(Swal)
 
   useEffect(() => {
     getUsers().then((response) => setUsers(response));
@@ -36,55 +41,55 @@ export const Register = () => {
     e.preventDefault();
     const validate = await validateEmail(input.email.trim());
     if (!input.name.trim()) {
-      setErrors("Debes ingresar tu nombre.");
+      setErrors("You must enter your name.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
       return;
     } else if (!input.lastName.trim()) {
-      setErrors("Debes ingresar tu apellido.");
+      setErrors("You must enter your last name.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
       return;
     } else if (!input.password.trim()) {
-      setErrors("Debes ingresar tu constraseña.");
+      setErrors("You must enter your password.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
       return;
     } else if (input.password.trim().length < 8) {
-      setErrors("La contraseña debe ser de 8 digitos.");
+      setErrors("The password must be 8 digits.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
       return;
     } else if (!passwordRepeat.trim()) {
-      setErrors("Debes repetir tu constraseña.");
+      setErrors("You must repeat your password.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
       return;
     } else if (input.password.trim() !== passwordRepeat.trim()) {
-      setErrors("Las contraseñas no coinciden.");
+      setErrors("Passwords do not match.")
       setTimeout(() => {
         setErrors("");
       }, 5000);
       return;
     } else if (users.find((u) => u.email === input.email)) {
-      setErrors("El E-Mail ya esta registrado.");
+      setErrors("The email is already registered.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
       return;
     } else if (!input.email.trim()) {
-      setErrors("Debes ingresar tu email.");
+      setErrors("You must enter your email.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
       return;
     } else if (validate === null) {
-      setErrors("El formato del email es invalido.");
+      setErrors("The email format is invalid.");
       setTimeout(() => {
         setErrors("");
       }, 5000);
@@ -99,16 +104,25 @@ export const Register = () => {
       image: "",
     });
     setPasswordRepeat("");
-    alert("Registrado correctamente !");
-    navigate("/");
+    MySwal.fire({
+      position: 'center',
+      icon: 'success',
+      iconColor:"#5800FF",
+      background:"#1B1A17",
+      color:"#FFFF",
+      title: 'You have successfully registered.',
+      showConfirmButton: false,
+      timer: 1500
+    })
+    setTimeout(() => {
+      navigate("/");
+    }, 1700);
   };
 
   return (
     <div className={styles.container}>
-      <img
-        src="https://images.vexels.com/media/users/3/224282/isolated/preview/c09e11bba1766e8412ce116e1afb4a58-logo-de-lineas-abstractas-violetas.png"
-        alt=""
-      />
+      <UserImage setInput={setInput} />
+      <br />
       <form
         className={styles.containerForm}
         autoComplete="off"
@@ -148,13 +162,6 @@ export const Register = () => {
           name="email"
           value={input.data}
           placeholder="E-Mail"
-          onChange={(e) => handleChange(e)}
-        />
-        <br />
-        <input
-          name="image"
-          value={input.data}
-          placeholder="Image URL"
           onChange={(e) => handleChange(e)}
         />
         <br />

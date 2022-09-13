@@ -7,10 +7,10 @@
 }
 
 .container img {
-    width: 220px;
-    height: 220px;
+    /* width: 220px;
+    height: 220px; */
     object-fit:cover;
-    padding: 20px;
+    padding: 50px;
 }
 
 .container label{
