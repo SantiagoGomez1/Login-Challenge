@@ -28,6 +28,7 @@
     text-align: center;
     color: white;
     border-style: none;
+    outline-style: none;
     border-radius: 10px;
     background: transparent;
     border: 2px solid rgb(106, 0, 255);

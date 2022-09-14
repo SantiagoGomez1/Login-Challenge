@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.container input {
+  text-align: center;
+  min-width: 200px;
+  min-height: 35px;
+  color: white;
+  outline-style: none;
+  border-style: none;
+  border-radius: 100px;
+  background: transparent;
+  border: 1px solid rgb(106, 0, 255);
+}
+
+@media (min-width: 700px) {
+  .container input {
+    min-width: 500px;
+    min-height: 35px;
+  }
+}
