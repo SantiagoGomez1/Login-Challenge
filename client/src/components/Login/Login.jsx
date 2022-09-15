@@ -52,7 +52,7 @@ export const Login = () => {
       return;
     } else {
       window.localStorage.setItem("loggedUser", JSON.stringify(data));
-      navigate(`/${data.id}`);
+      navigate(`/start`);
     }
   };
 
