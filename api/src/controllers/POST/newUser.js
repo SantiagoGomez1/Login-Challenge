@@ -11,6 +11,8 @@ const newUser = async (req, res) => {
       image:
         image ||
         "https://www.seekpng.com/png/full/847-8474751_download-empty-profile.png",
+      banner:
+        "https://img.freepik.com/vector-gratis/fondo-pantalla-textura-granulada-degradado-degradado_23-2148968811.jpg",
     });
     await user.save();
     res.status(201).json(user);

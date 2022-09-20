@@ -26,6 +26,9 @@ const userSchema = new Schema({
     type: String,
     required: false,
   },
+  banner: {
+    type: String,
+  },
   publications: [
     {
       type: Schema.Types.ObjectId,
