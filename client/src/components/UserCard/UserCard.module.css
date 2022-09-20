@@ -1,26 +1,43 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-}
-
 .containerData {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
+  align-items: center;
+  margin-top: -55px;
 }
 
 .image {
-  height: 250px;
-  width: 250px;
+  height: 100px;
+  width: 100px;
   object-fit: cover;
-  border-radius: 150px;
+  border: 5px solid rgb(28, 28, 28);
+  background: rgb(28, 28, 28);
+  border-radius: 50%;
 }
 
-.container h1,h2,p,span{
+.followersData {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.container h1,
+h2,
+p {
   color: white;
 }
 
+.container span{
+  color: white;
+  font-weight: bold;
+}
+
+@media (min-width: 700px) {
+  .image {
+    height: 150px;
+    width: 150px;
+  }
+  .containerData {
+    margin-top: -85px;
+  }
+}

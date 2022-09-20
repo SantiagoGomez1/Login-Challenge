@@ -1,8 +1,9 @@
-import { GET_ALL_USERS, GET_USER_SESSION } from "../action";
+import { GET_ALL_USERS, GET_USER_SESSION, GET_USER } from "../action";
 
 const initialState = {
   allUsers: [],
   userSession: {},
+  userDetail: {},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -16,6 +17,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         userSession: action.payload,
+      };
+    case GET_USER:
+      return {
+        ...state,
+        userDetail: action.payload,
       };
     default:
       return state;

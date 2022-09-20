@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.imgUser {
+  width: 100%;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.buttonCamera {
+  position: absolute;
+  right: 15px;
+  top: 80px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+@media (min-width: 700px) {
+  .imgUser {
+    width: 70%;
+    height: 250px;
+  }
+  .buttonCamera {
+    display: flex;
+    flex-direction: row;
+    margin-right: 120px;
+  }
+}
+@media (min-width: 800px) {
+  .buttonCamera {
+    display: flex;
+    flex-direction: row;
+    margin-right: 130px;
+  }
+}
+@media (min-width: 950px) {
+  .buttonCamera {
+    display: flex;
+    flex-direction: row;
+    margin-right: 150px;
+  }
+}
+@media (min-width: 1050px) {
+  .buttonCamera {
+    display: flex;
+    flex-direction: row;
+    margin-right: 200px;
+  }
+}
+@media (min-width: 1400px) {
+  .buttonCamera {
+    display: flex;
+    flex-direction: row;
+    margin-right: 250px;
+  }
+}
+@media (min-width: 1700px) {
+  .buttonCamera {
+    display: flex;
+    flex-direction: row;
+    margin-right: 300px;
+  }
+}
