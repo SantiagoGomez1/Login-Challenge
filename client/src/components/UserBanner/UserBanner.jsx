@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 
+import { useDispatch } from "react-redux";
+import { putBanner } from "../../redux/action";
+
 import styles from "./UserBanner.module.css";
 
-const UserBanner = ({ userData }) => {
-  const [image, setImage] = useState(
-    userData.banner ||
-      "https://img.freepik.com/vector-gratis/fondo-pantalla-textura-granulada-degradado-degradado_23-2148968811.jpg"
-  );
+const UserBanner = ({ userData, token }) => {
+  const dispatch = useDispatch();
 
   const uploadImage = async (files) => {
     const formData = new FormData();
@@ -17,14 +17,14 @@ const UserBanner = ({ userData }) => {
     formData.append("upload_preset", "HenryBank");
     await axios
       .post("https://api.cloudinary.com/v1_1/dya1hlfht/image/upload", formData)
-      .then((response) => {
-        setImage(response.data.url);
+      .then(async (response) => {
+        dispatch(await putBanner(userData.id, response.data.url, token));
       });
   };
 
   return (
     <div className={styles.container}>
-      <img src={image} alt="" className={styles.imgUser} />
+      <img src={userData.banner} alt="" className={styles.imgUser} />
       <div className={styles.buttonCamera}>
         <IconButton
           color="primary"
