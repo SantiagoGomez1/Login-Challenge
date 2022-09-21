@@ -12,6 +12,7 @@ const deletePublication = require("../controllers/DELETE/deletePublication");
 const updatePublication = require("../controllers/PUT/updatePublication");
 const setFollowing = require("../controllers/POST/following");
 const deleteFollower = require("../controllers/DELETE/deleteFollower");
+const updateBanner = require("../controllers/PUT/updateBanner");
 
 const router = express.Router();
 
@@ -20,6 +21,7 @@ router.post("/signup", newUser);
 router.post("/login", logIn);
 router.get("/users", getUsers);
 router.get("/user/:id", [cors(), verifyToken], getUser);
+router.put("/user/banner",[cors(),verifyToken], updateBanner)
 
 //PUBLICATIONS
 router.post("/user/publication", [cors(), verifyToken], newPublication);

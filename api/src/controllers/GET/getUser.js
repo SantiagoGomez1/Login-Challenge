@@ -31,6 +31,7 @@ const getUser = async (req, res) => {
       lastName: user.lastName,
       email: user.email,
       image: user.image,
+      banner: user.banner,
       publications: user.publications,
       followers: user.followers,
       following: user.following,
