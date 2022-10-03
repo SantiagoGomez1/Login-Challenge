@@ -24,7 +24,7 @@ export const UserProfile = () => {
     <div className={styles.container}>
       <Navbar userData={userSession} />
       {userInfo ? (
-        <UserCard />
+          <UserCard />
       ) : (
         <div className={styles.containerLoading}>
           <CircularProgress color="secondary" />

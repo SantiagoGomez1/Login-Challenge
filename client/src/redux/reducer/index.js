@@ -1,7 +1,13 @@
-import { GET_ALL_USERS, GET_USER_SESSION, GET_USER } from "../action";
+import {
+  GET_ALL_USERS,
+  GET_USER_SESSION,
+  GET_USER,
+  GET_ALL_PUBLICATIONS,
+} from "../action";
 
 const initialState = {
   allUsers: [],
+  allPublications: [],
   userSession: {},
   userDetail: {},
 };
@@ -22,6 +28,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         userDetail: action.payload,
+      };
+    case GET_ALL_PUBLICATIONS:
+      return {
+        ...state,
+        allPublications: action.payload,
       };
     default:
       return state;

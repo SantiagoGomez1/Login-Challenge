@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.publish {
+  border: 1px solid #2c3333;
+  /* background-color: #2C3333; */
+  background-color: rgb(41, 41, 41);
+  width: 100%;
+}
+
+.userImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.uploadImgCont {
+  display: flex;
+  justify-content: center;
+}
+
+.uploadImg {
+  width: 300px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.inputPub {
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputPub input {
+  border-style: none;
+  outline-style: none;
+  text-indent: 10px;
+  width: 70%;
+  height: 32px;
+  border-radius: 100px;
+  background-color: transparent;
+  border: 1px solid rgb(106, 0, 255);
+  color: white;
+}
+
+.inputPub input::placeholder {
+  font-weight: bold;
+}
+
+.sendPub {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 10px 0;
+  width: 100%;
+}
+
+.sendPub button {
+  width: 95%;
+  height: 1.3rem;
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: linear-gradient(-160.5deg, rgb(106, 0, 255), #3371db);
+}
+
+@media (min-width: 700px) {
+  .publish {
+    width: 70%;
+  }
+  .inputPub {
+    justify-content: space-evenly;
+  }
+  .inputPub input{
+    text-indent: 20px;
+    height: 36px;
+  }
+  .sendPub button {
+    width: 25%;
+    height: 1.6rem;
+  }
+}

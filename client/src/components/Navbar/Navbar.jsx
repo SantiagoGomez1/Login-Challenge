@@ -8,8 +8,10 @@ import styles from "./Navbar.module.css";
 export const Navbar = ({ userData }) => {
   return (
     <header className={styles.container}>
-      <img className={styles.logo} src={logo} alt="" />
-      <Searchbar />
+      <div className={styles.contLogSer}>
+        <img className={styles.logo} src={logo} alt="" />
+        <Searchbar />
+      </div>
       <Menu userData={userData} />
     </header>
   );
