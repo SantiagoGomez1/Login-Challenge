@@ -24,7 +24,7 @@ export const Start = () => {
       dispatch(getAllPublications(token));
       setToken(token);
     }
-  }, []);
+  }, [allPublications]);
 
   return (
     <div className={styles.container}>
@@ -33,15 +33,14 @@ export const Start = () => {
       <div className={styles.contPubl}>
         {allPublications ? (
           allPublications.map((p) => (
-            <div key={p.id} className={styles.Pub}>
-              <PublicationStart
-                text={p.text}
-                image={p.image}
-                user={p.user}
-                date={p.date}
-                id={p.id}
-              />
-            </div>
+            <PublicationStart
+              key={p.id}
+              id={p.id}
+              text={p.text}
+              image={p.image}
+              user={p.user}
+              date={p.date}
+            />
           ))
         ) : (
           <div className={styles.containerLoading}>

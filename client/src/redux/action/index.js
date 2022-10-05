@@ -78,7 +78,5 @@ export const postPublication = async (input, userData, token) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  console.log(body);
   await axios.post("http://localhost:8000/user/publication", body, config);
-  console.log("todo bien");
 };

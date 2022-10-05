@@ -41,7 +41,15 @@ export const Publish = ({ token }) => {
     if (!input.text.trim().length) {
       return;
     }
-    dispatch(postPublication(input, userData, token));
+    try {
+      dispatch(postPublication(input, userData, token));
+      setInput({
+        text: "",
+        image: "",
+      });
+    } catch (error) {
+      return error;
+    }
   };
 
   return (
@@ -56,28 +64,32 @@ export const Publish = ({ token }) => {
             placeholder="What are you thinking?"
             onChange={(e) => handleChange(e)}
           />
-          <IconButton
-            color="primary"
-            aria-label="upload picture"
-            component="label"
-          >
-            <input
-              hidden
-              accept="image/*"
-              type="file"
-              onChange={(e) => uploadImage(e.target.files)}
-            />
-            <PhotoCamera />
-          </IconButton>
+          <div className={styles.buttonCamera}>
+            <IconButton
+              color="primary"
+              aria-label="upload picture"
+              component="label"
+            >
+              <input
+                hidden
+                accept="image/*"
+                type="file"
+                onChange={(e) => uploadImage(e.target.files)}
+              />
+              <PhotoCamera />
+            </IconButton>
+          </div>
         </div>
         <div className={styles.uploadImgCont}>
           {uploadImg ? (
             <img src={uploadImg} className={styles.uploadImg} alt="" />
           ) : null}
         </div>
-        <div className={styles.sendPub}>
-          <button onClick={submitPost}>Post</button>
-        </div>
+        {!input.text.length ? null : (
+          <div className={styles.sendPub}>
+            <button onClick={submitPost}>Post</button>
+          </div>
+        )}
       </div>
     </div>
   );

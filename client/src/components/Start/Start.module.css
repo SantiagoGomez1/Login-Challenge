@@ -1,15 +1,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .contPubl{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 30px 0 50px;
-  gap: 50px;
+  margin: 8px 0 50px;
 }
 
 .containerLoading {
